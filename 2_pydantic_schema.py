@@ -6,7 +6,7 @@ class Patient(BaseModel):
   email:EmailStr
   link:Optional[AnyUrl] = None            # Optional field for personal website
   age:Annotated[int, Field(gt=0)]         # Age must be greater than 0
-  weight:Annotated[float, Field(gt=0)]    # Weight must be greater than 0
+  weight:Annotated[float, Field(gt=0, strict=True)]    # Weight must be greater than 0
   married:Annotated[bool, Field(default=False)]  # Default value set to False
   allergies:Annotated[Optional[List[str]], Field(default=None, max_length=5)]    # Optional field for allergies
   contact_details:Dict[str, str]
